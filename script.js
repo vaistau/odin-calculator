@@ -1,3 +1,7 @@
+let displayValue = 0;
+
+// FUNCTION DECLARATIONS:
+
 const add = function (...num) {
   let result = num.reduce((firstNum, secondNum) => firstNum + secondNum);
   return parseFloat(result);
@@ -23,8 +27,10 @@ const divide = function (...num) {
 console.log(divide(5, 2));
 
 const byHundred = function (num) {
-
+  let result = num / 100;
+  return parseFloat(result);
 }
+console.log(byHundred(5));
 
 const useOperator = function (firstNum, operator, secondNum) {
   if (operator === '+') {
@@ -45,5 +51,7 @@ console.log(useOperator(5, '+', 2));
 console.log(useOperator(5, '-', 2));
 console.log(useOperator(5, '*', 2));
 console.log(useOperator(5, '/', 2));
-// console.log(useOperator(5));
+console.log(useOperator(5, '%'));
 console.log(useOperator(5, '$', 2));
+
+const 
