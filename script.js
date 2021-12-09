@@ -1,3 +1,14 @@
+const resetButton = document.querySelector('#reset');
+const signButton = document.querySelector('#sign');
+const moduloButton = document.querySelector('#modulo');
+const divideButton = document.querySelector('#divide');
+const multiplyButton = document.querySelector('#multiply');
+const subtractButton = document.querySelector('#subtract');
+const addButton = document.querySelector('#add');
+const decimalButton = document.querySelector('#decimal');
+const equalsButton = document.querySelector('#equals');
+const numButton = document.querySelector('#num');
+
 let displayValue = 0;
 
 // FUNCTION DECLARATIONS:
@@ -54,4 +65,3 @@ console.log(useOperator(5, '/', 2));
 console.log(useOperator(5, '%'));
 console.log(useOperator(5, '$', 2));
 
-const 
