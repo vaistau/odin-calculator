@@ -9,10 +9,10 @@ const decimalButton = document.querySelector('.decimal');
 const equalsButton = document.querySelector('.equals');
 const numButton = document.querySelector('.num');
 
-let displayValue = document.querySelector('#display');
+let displayValue
 
-let resetDisplayValue = resetButton.addEventListener('click', function() {
-  document.getElementById('display').innerHTML = '0';
+let resetDisplayValue = resetButton.addEventListener('click', () => {
+  displayValue = document.getElementById('display').innerHTML = '0';
 })
 
 // FUNCTION DECLARATIONS:
@@ -21,31 +21,26 @@ const add = function (...num) {
   let result = num.reduce((firstNum, secondNum) => firstNum + secondNum);
   return parseFloat(result);
 };
-console.log(add(5, 2));
 
 const subtract = function (...num) {
   let result = num.reduce((firstNum, secondNum) => firstNum - secondNum);
   return parseFloat(result);
 };
-console.log(subtract(5, 2));
 
 const multiply = function (...num) {
   let result = num.reduce((firstNum, secondNum) => firstNum * secondNum);
   return parseFloat(result);
 };
-console.log(multiply(5, 2));
 
 const divide = function (...num) {
   let result = num.reduce((firstNum, secondNum) => firstNum / secondNum);
   return parseFloat(result);
 }
-console.log(divide(5, 2));
 
 const byHundred = function (num) {
   let result = num / 100;
   return parseFloat(result);
 }
-console.log(byHundred(5));
 
 const useOperator = function (firstNum, operator, secondNum) {
   if (operator === '+') {
@@ -62,10 +57,4 @@ const useOperator = function (firstNum, operator, secondNum) {
     return 'Unknown operator.';
   }
 }
-console.log(useOperator(5, '+', 2));
-console.log(useOperator(5, '-', 2));
-console.log(useOperator(5, '*', 2));
-console.log(useOperator(5, '/', 2));
-console.log(useOperator(5, '%'));
-console.log(useOperator(5, '$', 2));
 
