@@ -1,56 +1,47 @@
 const add = function (...num) {
-    let result = num.reduce((firstNum, secondNum) => firstNum + secondNum);
-    return result;
-  };
-  
-  const subtract = function (...num) {
-    let result = num.reduce((firstNum, secondNum) => firstNum - secondNum);
-    return parseInt(result);
-  };
-  
-  const sum = function (num) {
-    let result = num.reduce((firstNum, secondNum) => firstNum + secondNum, 0);
-    return parseInt(result);
-  };
-  
-  const multiply = function (num) {
-    let result = num.reduce((firstNum, secondNum) => firstNum * secondNum);
-    return parseInt(result);
-  };
-  
-  const power = function (...num) {
-    let result = num.reduce((firstNum, secondNum) => Math.pow(firstNum, secondNum));
-    return parseInt(result);
-  };
-  
-  const factorial = function (num) {
-    let result = num;
-  
-    if (num === 0 || num === 1) {
-      return 1;
-    } else {
-      while (num > 1) {
-        num--;
-        result = result * num
-      }
-    }
-    return result;
-  };
+  let result = num.reduce((firstNum, secondNum) => firstNum + secondNum);
+  return result;
+};
+console.log(add(5, 2));
 
-  const useOperator = function (operator, ...num) {
-      if (operator === '+') {
-        return add(num);
-      } else if (operator === '-') {
-        return subtract(num);
-      } else if (operator === '*') {
-        return multiply(num);
-      } else if (operator === '/') {
-        return 
-      } else if (operator === '^') {
-        return power(num);
-      } else if (operator === '!') {
-          return factorial(num);
-      } else {
-        return 'Unknown operator.';
-      }
+const subtract = function (...num) {
+  let result = num.reduce((firstNum, secondNum) => firstNum - secondNum);
+  return parseInt(result);
+};
+console.log(subtract(5, 2));
+
+const multiply = function (...num) {
+  let result = num.reduce((firstNum, secondNum) => firstNum * secondNum);
+  return parseInt(result);
+};
+console.log(multiply(5, 2));
+
+const divide = function (...num) {
+
+}
+
+const byHundred = function (num) {
+
+}
+
+  const useOperator = function (firstNum, operator, secondNum) {
+  if (operator === '+') {
+    return add(firstNum, secondNum);
+  } else if (operator === '-') {
+    return subtract(firstNum, secondNum);
+  } else if (operator === '*') {
+    return multiply(firstNum, secondNum);
+  } else if (operator === '/') {
+    return divide(firstNum, secondNum)
+  } else if (operator === '%') {
+    return byHundred(firstNum)
+  } else {
+    return 'Unknown operator.';
   }
+}
+console.log(useOperator(5, '+', 2));
+console.log(useOperator(5, '-', 2));
+console.log(useOperator(5, '*', 2));
+// console.log(useOperator(5,'/',2));
+// console.log(useOperator(5));
+console.log(useOperator(5, '$', 2));
