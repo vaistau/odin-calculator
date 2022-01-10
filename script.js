@@ -9,11 +9,23 @@ const decimalButton = document.querySelector('.decimal');
 const equalsButton = document.querySelector('.equals');
 const numButton = document.querySelector('.num');
 
+const numInputs = document.querySelectorAll('.num');
+
 let displayValue
+let valueOne
+let valueTwo
 
 let resetDisplayValue = resetButton.addEventListener('click', () => {
   displayValue = document.getElementById('display').innerHTML = '0';
 })
+
+numInputs.forEach(input => {
+  input.addEventListener('click', () => {
+    // function should alter value one OR value two
+  })
+})
+
+moduloButton.addEventListener('click', byHundred(valueOne));
 
 // FUNCTION DECLARATIONS:
 
@@ -39,22 +51,5 @@ const divide = function (...num) {
 
 const byHundred = function (num) {
   let result = num / 100;
-  return parseFloat(result);
+  displayValue = document.getElementById('display').innerHTML = parseFloat(result);
 }
-
-const useOperator = function (firstNum, operator, secondNum) {
-  if (operator === '+') {
-    return add(firstNum, secondNum);
-  } else if (operator === '-') {
-    return subtract(firstNum, secondNum);
-  } else if (operator === '*') {
-    return multiply(firstNum, secondNum);
-  } else if (operator === '/') {
-    return divide(firstNum, secondNum)
-  } else if (operator === '%') {
-    return byHundred(firstNum)
-  } else {
-    return 'Unknown operator.';
-  }
-}
-
