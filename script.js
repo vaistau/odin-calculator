@@ -15,7 +15,9 @@ const numButton = document.querySelector('.num');
 
 let valueOne
 let valueTwo
-let finalValue
+
+
+
 
 let resetDisplayValue = resetButton.addEventListener('click', () => {
   displayValue.innerHTML = '0';
@@ -33,7 +35,8 @@ numInputs.forEach(input => {
   })
 })
 
-moduloButton.addEventListener('click', byHundred(valueOne));
+
+
 
 // FUNCTION DECLARATIONS:
 
@@ -59,5 +62,5 @@ const divide = function (...num) {
 
 const byHundred = function (num) {
   let result = num / 100;
-  displayValue = document.getElementById('display').innerHTML = parseFloat(result);
+  displayValue = displayValue.innerHTML = parseFloat(result);
 }
