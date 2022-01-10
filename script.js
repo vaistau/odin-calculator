@@ -1,3 +1,7 @@
+const displayValue = document.getElementById('display');
+
+const numInputs = document.querySelectorAll('.num');
+
 const resetButton = document.querySelector('.reset');
 const signButton = document.querySelector('.sign');
 const moduloButton = document.querySelector('.modulo');
@@ -9,19 +13,23 @@ const decimalButton = document.querySelector('.decimal');
 const equalsButton = document.querySelector('.equals');
 const numButton = document.querySelector('.num');
 
-const numInputs = document.querySelectorAll('.num');
-
-let displayValue
 let valueOne
 let valueTwo
+let finalValue
 
 let resetDisplayValue = resetButton.addEventListener('click', () => {
-  displayValue = document.getElementById('display').innerHTML = '0';
+  displayValue.innerHTML = '0';
 })
 
 numInputs.forEach(input => {
   input.addEventListener('click', () => {
-    // function should alter value one OR value two
+    if (displayValue.innerHTML === '0') {
+      displayValue.innerHTML = '';
+    }
+
+    if (displayValue.innerHTML.length < 16) {
+      displayValue.innerHTML += input.innerHTML;;
+    }
   })
 })
 
