@@ -3,15 +3,7 @@ const displayValue = document.getElementById('display');
 const numInputs = document.querySelectorAll('.num');
 
 const resetButton = document.querySelector('.reset');
-const signButton = document.querySelector('.sign');
-const moduloButton = document.querySelector('.modulo');
-const divideButton = document.querySelector('.divide');
-const multiplyButton = document.querySelector('.multiply');
-const subtractButton = document.querySelector('.subtract');
-const addButton = document.querySelector('.add');
 const decimalButton = document.querySelector('.decimal');
-const equalsButton = document.querySelector('.equals');
-const numButton = document.querySelector('.num');
 
 let valueOne
 let valueTwo
@@ -30,9 +22,15 @@ numInputs.forEach(input => {
     }
 
     if (displayValue.innerHTML.length < 16) {
-      displayValue.innerHTML += input.innerHTML;;
+      displayValue.innerHTML += input.innerHTML;
     }
   })
+})
+
+decimalButton.addEventListener('click', () => {
+  if (displayValue.innerHTML.indexOf('.') === -1) {
+    displayValue.innerHTML += '.';
+  }
 })
 
 
