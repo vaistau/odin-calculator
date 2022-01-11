@@ -12,16 +12,14 @@ let valueTwo
 let operator
 let result
 
-
-
-let resetAll = resetButton.addEventListener('click', () => {
+const clickReset = resetButton.addEventListener('click', () => {
   displayValue.innerHTML = '0';
   valueOne = null;
   valueTwo = null;
   operator = null;
 })
 
-numButtons.forEach(e => {
+const clickNumber = numButtons.forEach(e => {
   e.addEventListener('click', () => {
     if (displayValue.innerHTML === '0' || displayValue.innerHTML === valueOne) {
       displayValue.innerHTML = '';
@@ -33,36 +31,43 @@ numButtons.forEach(e => {
   })
 })
 
-decimalButton.addEventListener('click', () => {
+const clickDecimal = decimalButton.addEventListener('click', () => {
   if (displayValue.innerHTML.indexOf('.') === -1) {
     displayValue.innerHTML += '.';
   }
 })
 
-operatorButtons.forEach(e => {
+const clickOperator = operatorButtons.forEach(e => {
   e.addEventListener('click', () => {
     valueOne = displayValue.innerHTML;
-    operator = e.innerHTML;
+    operator = e.className;
+
+    console.log(operator);
   })
 })
 
-equalsButton.addEventListener('click', () => {
+const clickEquals = equalsButton.addEventListener('click', () => {
   valueTwo = displayValue.innerHTML;
-  operate(Number(valueOne), Number(valueTwo));
+  operate(valueOne, valueTwo);
 })
 
-
-
 const operate = function (valueOne, valueTwo) {
-  if (operator === '&divide;') {
+  valueOne = parseFloat(valueOne);
+  valueTwo = parseFloat(valueTwo);
+
+  console.log(valueOne);
+
+  if (operator === 'operator divide') {
     result = valueOne / valueTwo;
-  } else if (operator === '&times;') {
+  } else if (operator === 'operator multiply') {
     result = valueOne * valueTwo;
-  } else if (operator === '&minus;') {
+  } else if (operator === 'operator subtract') {
     result = valueOne - valueTwo;
-  } else if (operator === '&plus;') {
+  } else if (operator === 'operator add') {
     result = valueOne + valueTwo;
   }
 
-  displayValue.innerHTML = toString(result);
+  console.log(result);
+
+  displayValue.innerHTML = String(result);
 }
