@@ -60,15 +60,17 @@ const clickOperator = operatorButtons.forEach(e => {
 })
 
 const clickEquals = equalsButton.addEventListener('click', () => {
-  valueTwo = displayValue.innerHTML;
-  operate(valueOne, valueTwo);
+  if (valueOne !== null) {
+    valueTwo = displayValue.innerHTML;
+    operate(valueOne, valueTwo);
+  }
 })
 
 const operate = function (valueOne, valueTwo) {
   valueOne = parseFloat(valueOne);
   valueTwo = parseFloat(valueTwo);
 
-  if (operator === 'operator divide') {
+  if (operator === 'operator divide' && valueTwo !== 0) {
     result = valueOne / valueTwo;
   } else if (operator === 'operator multiply') {
     result = valueOne * valueTwo;
@@ -76,6 +78,8 @@ const operate = function (valueOne, valueTwo) {
     result = valueOne - valueTwo;
   } else if (operator === 'operator add') {
     result = valueOne + valueTwo;
+  } else if (operator === 'operator divide' && valueTwo === 0) {
+    result = 'Nice try, kid.';
   }
 
   displayValue.innerHTML = String(result);
