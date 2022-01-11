@@ -41,6 +41,8 @@ const clickDecimal = decimalButton.addEventListener('click', () => {
 const clickSign = signButton.addEventListener('click', () => {
   if (displayValue.innerHTML.startsWith('-') === false && displayValue.innerHTML !== '0') {
     displayValue.innerHTML = '-' + displayValue.innerHTML;
+  } else {
+    displayValue.innerHTML = displayValue.innerHTML.replace('-', '');
   }
 })
 
@@ -48,6 +50,12 @@ const clickOperator = operatorButtons.forEach(e => {
   e.addEventListener('click', () => {
     valueOne = displayValue.innerHTML;
     operator = e.className;
+
+    if (operator === 'operator percent') {
+      valueOne = parseFloat(valueOne);
+      result = valueOne / 100;
+      displayValue.innerHTML = String(result);
+    }
   })
 })
 
