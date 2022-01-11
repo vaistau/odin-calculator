@@ -5,10 +5,12 @@ const operatorButtons = document.querySelectorAll('.operator');
 
 const resetButton = document.querySelector('.reset');
 const decimalButton = document.querySelector('.decimal');
+const equalsButton = document.querySelector('.equals');
 
 let valueOne
 let valueTwo
 let operator
+let result
 
 
 
@@ -45,32 +47,24 @@ operatorButtons.forEach(e => {
   })
 })
 
+equalsButton.addEventListener('click', () => {
+  valueTwo = displayValue.innerHTML;
+  operate(valueOne, valueTwo);
+})
 
 
 
-// FUNCTION DECLARATIONS:
 
-const add = function (...num) {
-  let result = num.reduce((firstNum, secondNum) => firstNum + secondNum);
-  return parseFloat(result);
-};
+const operate = function (valueOne, valueTwo) {
+  if (operator === '&divide;') {
+    result = valueOne / valueTwo;
+  } else if (operator === '&times;') {
+    result = valueOne * valueTwo;
+  } else if (operator === '&minus;') {
+    result = valueOne - valueTwo;
+  } else if (operator === '&plus;') {
+    result = valueOne + valueTwo;
+  }
 
-const subtract = function (...num) {
-  let result = num.reduce((firstNum, secondNum) => firstNum - secondNum);
-  return parseFloat(result);
-};
-
-const multiply = function (...num) {
-  let result = num.reduce((firstNum, secondNum) => firstNum * secondNum);
-  return parseFloat(result);
-};
-
-const divide = function (...num) {
-  let result = num.reduce((firstNum, secondNum) => firstNum / secondNum);
-  return parseFloat(result);
-}
-
-const byHundred = function (num) {
-  let result = num / 100;
-  displayValue = displayValue.innerHTML = parseFloat(result);
+  displayValue.innerHTML = result;
 }
