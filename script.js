@@ -41,8 +41,6 @@ const clickOperator = operatorButtons.forEach(e => {
   e.addEventListener('click', () => {
     valueOne = displayValue.innerHTML;
     operator = e.className;
-
-    console.log(operator);
   })
 })
 
@@ -55,8 +53,6 @@ const operate = function (valueOne, valueTwo) {
   valueOne = parseFloat(valueOne);
   valueTwo = parseFloat(valueTwo);
 
-  console.log(valueOne);
-
   if (operator === 'operator divide') {
     result = valueOne / valueTwo;
   } else if (operator === 'operator multiply') {
@@ -66,8 +62,6 @@ const operate = function (valueOne, valueTwo) {
   } else if (operator === 'operator add') {
     result = valueOne + valueTwo;
   }
-
-  console.log(result);
 
   displayValue.innerHTML = String(result);
 }
