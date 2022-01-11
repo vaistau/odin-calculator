@@ -14,7 +14,6 @@ let result
 
 
 
-
 let resetAll = resetButton.addEventListener('click', () => {
   displayValue.innerHTML = '0';
   valueOne = null;
@@ -49,9 +48,8 @@ operatorButtons.forEach(e => {
 
 equalsButton.addEventListener('click', () => {
   valueTwo = displayValue.innerHTML;
-  operate(valueOne, valueTwo);
+  operate(Number(valueOne), Number(valueTwo));
 })
-
 
 
 
@@ -66,5 +64,5 @@ const operate = function (valueOne, valueTwo) {
     result = valueOne + valueTwo;
   }
 
-  displayValue.innerHTML = result;
+  displayValue.innerHTML = toString(result);
 }
