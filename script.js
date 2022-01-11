@@ -6,6 +6,7 @@ const operatorButtons = document.querySelectorAll('.operator');
 const resetButton = document.querySelector('.reset');
 const decimalButton = document.querySelector('.decimal');
 const equalsButton = document.querySelector('.equals');
+const signButton = document.querySelector('.sign');
 
 let valueOne
 let valueTwo
@@ -34,6 +35,12 @@ const clickNumber = numButtons.forEach(e => {
 const clickDecimal = decimalButton.addEventListener('click', () => {
   if (displayValue.innerHTML.indexOf('.') === -1) {
     displayValue.innerHTML += '.';
+  }
+})
+
+const clickSign = signButton.addEventListener('click', () => {
+  if (displayValue.innerHTML.startsWith('-') === false && displayValue.innerHTML !== '0') {
+    displayValue.innerHTML = '-' + displayValue.innerHTML;
   }
 })
 
